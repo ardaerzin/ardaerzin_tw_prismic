@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-image: repeating-linear-gradient(#f8f8f8, #482584);
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  background-color: #482584;
+}
+
+body {
+  background: transparent
+}
+
+#__next {
+  perspective: 200px;
+}
+
+#page-wrapper {
+  background-color: #F8F8F8;
+}

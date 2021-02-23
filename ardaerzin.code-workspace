@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"name": "ardaerzin.com",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			".vscode": true,
+			".eslintrc": true,
+			"**/yarn.lock": true,
+			"**/node_modules": true,
+			"**/jsconfig.json": true,
+			"**/.next": true,
+			"**/.vercel": true
+		},
+		"files.watcherExclude": {
+			"**/.git/objects/**": true,
+			"**/.git/subtree-cache/**": true,
+			"**/.hg/store/**": true
+		}
+	}
+}
