@@ -11,8 +11,10 @@ const LandingReferencesSection = ({ references = [] }) => {
       </SectionHeader>
       <div
         className='
-          grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:w-full
-          sm:gap-y-8
+          grid
+          grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+          md:w-full
+          gap-y-4 sm:gap-y-8
           sm:gap-x-4
         '
       >
