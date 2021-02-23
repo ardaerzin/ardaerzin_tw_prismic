@@ -40,6 +40,6 @@ ProjectItem.propTypes = {
   img: PropTypes.object,
   title: PropTypes.string,
   description: PropTypes.array,
-  startDate: PropTypes.object
+  startdate: PropTypes.string
 }
 export default ProjectItem

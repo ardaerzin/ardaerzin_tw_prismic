@@ -42,7 +42,8 @@ const Footer = ({ scrollY, pageRef }) => {
 }
 
 Footer.propTypes = {
-  scrollY: PropTypes.object
+  scrollY: PropTypes.object,
+  pageRef: PropTypes.object
 }
 
 export default Footer

@@ -1,10 +1,10 @@
 import { m as motion, useSpring, useTransform } from 'framer-motion'
 import useIsomorphicComponentSize from 'lib/hooks/useIsomorphicComponentSize'
 import PropTypes from 'prop-types'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 
 const PageWrapper = forwardRef(({ scrollY, ...rest }, ref) => {
-  const [{ top = 0, bottom = 0, height = 0 }, setConstraints] = useState({ top: 0, bottom: 0 })
+  const [{ top = 0, bottom = 0 }, setConstraints] = useState({ top: 0, bottom: 0 })
   const { height: pageHeight } = useIsomorphicComponentSize(ref)
   useEffect(() => {
     const footerHeight = document.body.getBoundingClientRect().height - pageHeight
