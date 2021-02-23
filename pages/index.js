@@ -1,5 +1,5 @@
+import { getPersonalProjects, getRefProjects } from 'lib/prismic/endpoints'
 import LandingReferencesSection from 'Components/Landing/References'
-import { getPersonalProjects, getRefProjects } from 'lib/prismicApi'
 import LandingProjectsSection from 'Components/Landing/Projects'
 import LandingServicesSection from 'Components/Landing/Services'
 import LandingHero from 'Components/Landing/Hero'

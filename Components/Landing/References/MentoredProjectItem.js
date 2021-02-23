@@ -2,12 +2,16 @@ import Image from 'next/image'
 import { RichText } from 'prismic-reactjs'
 import PropTypes from 'prop-types'
 
-const MentoredProjectItem = ({ img, name, description }) => {
+const MentoredProjectItem = ({ img, name, description, studentproject, project_url, ...rest }) => {
   return (
-    <div className='flex flex-col bg-white rounded-lg overflow-hidden shadow-md p-8'>
-      <span className='font-display bg-green-500 text-white text-xxs rounded-full py-2 px-3 self-center uppercase'>
-        student project
-      </span>
+    <a href={project_url.url} target='__blank' className='flex flex-col bg-white rounded-lg overflow-hidden shadow-md p-8'>
+      {
+        studentproject && (
+          <div className='font-display bg-green-500 font-bold tracking-tight text-white text-xxs rounded-full py-2 px-3 self-end uppercase'>
+            student project
+          </div>
+        )
+      }
       <div className='max-w-ref-image mx-auto w-full'>
         <Image
           src={`${img.url}`}
@@ -23,14 +27,16 @@ const MentoredProjectItem = ({ img, name, description }) => {
       >
         <RichText render={description} />
       </div>
-    </div>
+    </a>
   )
 }
 
 MentoredProjectItem.propTypes = {
   img: PropTypes.object,
   name: PropTypes.string,
-  description: PropTypes.array
+  description: PropTypes.array,
+  studentproject: PropTypes.bool,
+  project_url: PropTypes.object
 }
 
 export default MentoredProjectItem

@@ -1,9 +1,8 @@
 import 'Styles/globals.css'
 import { AnimatePresence, MotionConfig } from 'framer-motion'
-import useDocumentBackground from 'lib/useDocumentBackground'
+import useDocumentBackground from 'lib/hooks/useDocumentBackground'
 
 import PageWrapper from 'Components/Page/PageWrapper'
-// import Header from 'Components/Navigation/Header'
 import Footer from 'Components/Navigation/Footer'
 import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
@@ -12,11 +11,10 @@ import { useEffect, useRef, useState } from 'react'
 
 const MobileMenuContainer = dynamic(() => import('Components/Navigation/MobileMenu'), { ssr: false })
 const Header = dynamic(() => import('Components/Navigation/Header'))
-// const Footer = dynamic(() => import('Components/Navigation/Footer'))
 
 const MyApp = ({ Component, pageProps, router }) => {
+  const pageRef = useRef()
   const [scrollY] = useDocumentBackground()
-  const bottomRef = useRef()
   const [features, setFeatures] = useState([])
   useEffect(() => {
     import('lib/motionConfig').then(res => {
@@ -34,7 +32,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       <MobileMenuContainer />
       <PageWrapper
         scrollY={scrollY}
-        forwardRef={bottomRef}
+        ref={pageRef}
       >
         <Header />
         <AnimatePresence
@@ -47,8 +45,8 @@ const MyApp = ({ Component, pageProps, router }) => {
         </AnimatePresence>
       </PageWrapper>
       <Footer
-        ref={bottomRef}
         scrollY={scrollY}
+        pageRef={pageRef}
       />
     </MotionConfig>
   )
