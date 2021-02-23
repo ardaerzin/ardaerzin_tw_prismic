@@ -1,15 +1,17 @@
 import { m as motion, useSpring, useTransform } from 'framer-motion'
+import useIsomorphicComponentSize from 'lib/hooks/useIsomorphicComponentSize'
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 
-const PageWrapper = ({ forwardRef, scrollY, ...rest }) => {
-  const [{ top, bottom }, setConstraints] = useState({ top: 0, bottom: 0 })
+const PageWrapper = forwardRef(({ scrollY, ...rest }, ref) => {
+  const [{ top = 0, bottom = 0, height = 0 }, setConstraints] = useState({ top: 0, bottom: 0 })
+  const { height: pageHeight } = useIsomorphicComponentSize(ref)
   useEffect(() => {
-    if (!forwardRef?.current) return
-    const top = forwardRef?.current?.getBoundingClientRect()?.bottom - forwardRef?.current?.getBoundingClientRect()?.height - window?.innerHeight + 50
-    const bottom = forwardRef?.current?.getBoundingClientRect()?.bottom - window?.innerHeight
+    const footerHeight = document.body.getBoundingClientRect().height - pageHeight
+    const top = pageHeight - window?.innerHeight
+    const bottom = top + footerHeight
     setConstraints({ top, bottom })
-  }, [forwardRef])
+  }, [pageHeight])
 
   const borderRange = [0, 0, 24]
   const borderRadius = useSpring(useTransform(scrollY, [0, top, bottom], borderRange), { damping: 40, stiffness: 400 })
@@ -17,6 +19,7 @@ const PageWrapper = ({ forwardRef, scrollY, ...rest }) => {
 
   return (
     <motion.div
+      ref={ref}
       id='page-wrapper'
       style={{
         transformPerspective: translateZ,
@@ -29,10 +32,9 @@ const PageWrapper = ({ forwardRef, scrollY, ...rest }) => {
       {...rest}
     />
   )
-}
+})
 
 PageWrapper.propTypes = {
-  forwardRef: PropTypes.object,
   scrollY: PropTypes.object
 }
 
