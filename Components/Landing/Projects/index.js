@@ -11,12 +11,10 @@ const LandingProjectsSection = ({ projects }) => {
       </SectionHeader>
       <div
         className='
-          grid
-          w-full
-          grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+          grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:w-full
           sm:gap-y-8
-          sm:gap-x-8 md:gap-x-16
-          bg-purple-500
+          sm:gap-x-8
+          md:gap-x-16
         '
       >
         {projects.map((ri, i) => <ProjectItem key={`mentored-item-${i}`} {...ri.node} />)}
