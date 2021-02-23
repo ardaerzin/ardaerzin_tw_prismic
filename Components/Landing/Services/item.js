@@ -19,9 +19,15 @@ const LandingServiceItem = ({ title, description, illustration, items = [] }) =>
           <p className='text-xl'>
             {description}
           </p>
-          <ul className='grid grid-cols-2 pt-2 font-display gap-y-6 pl-4'>
+          <ul className='grid grid-cols-2 pt-2 font-display gap-y-6 gap-x-6 pl-4'>
             {
-              items.map((item, i) => <li key={`landing-service-item-${i}`}><span className='text-accent4'>{'</>'}</span> {item}</li>)
+              items.map((item, i) => {
+                return (
+                  <li key={`landing-service-item-${i}`} className='flex space-x-1'>
+                    <span className='text-accent4'>{'</>'}</span> <span>{item}</span>
+                  </li>
+                )
+              })
             }
           </ul>
         </div>
