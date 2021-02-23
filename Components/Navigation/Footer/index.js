@@ -34,7 +34,7 @@ const Footer = ({ scrollY, pageRef }) => {
       <div className='grid grid-flow-row grid-cols-2 w-full md:w-auto md:grid-flow-col gap-x-4 gap-y-4 md:gap-y-0 '>
         { NavLinks.map((nl, i) => <FooterNavLink key={`footer-link-${i}`} {...nl} />) }
       </div>
-      <span className='font-body text-gray-500'>
+      <span className='font-body text-gray-200'>
         made with {'<3'} in Berlin
       </span>
     </motion.div>
