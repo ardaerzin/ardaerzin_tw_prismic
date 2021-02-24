@@ -10,7 +10,7 @@ export const HeroHeader = ({ className, ...rest }) => {
         lg:text-7xl
         font-black
         font-display
-        max-w-prose
+        max-w-header-prose
         tracking-tight
       `, className)}
       {...rest}
@@ -27,7 +27,7 @@ export const SectionHeader = ({ className, ...rest }) => {
     <p
       className={classnames(`
         lg:text-6xl
-        text-4xl
+        text-5xl
         font-black
         font-display
         tracking-tight

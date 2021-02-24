@@ -8,10 +8,10 @@ const CommonSection = ({ className, ...rest }) => {
         classnames(`
           flex flex-col
           lg:flex-row
-          py-24
-          max-w-screen-lg
-          w-full
+          py-16 md:py-24 lg:py-32
+          max-w-screen-lg w-full
           self-center
+          mx-auto
       `, className)
       }
       {...rest}
