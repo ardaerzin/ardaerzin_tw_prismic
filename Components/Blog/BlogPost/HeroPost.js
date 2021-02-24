@@ -1,22 +1,20 @@
 import { CardTitle } from 'Components/Common/Headers'
-import Image from 'next/image'
-import PropTypes from 'prop-types'
+import CardItem from 'Components/Common/Card'
 import BlogAuthorArea from './authorArea'
+import PropTypes from 'prop-types'
+import Image from 'next/image'
 
 const BlogHeroPost = ({ cover, title, excerpt, date }) => {
   return (
-    <div
+    <CardItem
       className='
-        flex md:flex-row flex-col
-        bg-white
-        rounded-lg
-        overflow-hidden
-        shadow-md
+        md:flex-row
         w-full
         p-8
         mb-8
         md:space-x-8
         space-y-4 md:space-y-0
+        cursor-pointer
       '
     >
       <div
@@ -60,13 +58,13 @@ const BlogHeroPost = ({ cover, title, excerpt, date }) => {
           date={date}
         />
       </div>
-    </div>
+    </CardItem>
   )
 }
 
 BlogHeroPost.propTypes = {
   cover: PropTypes.object,
-  title: PropTypes.object,
+  title: PropTypes.array,
   excerpt: PropTypes.string,
   date: PropTypes.string
 }
