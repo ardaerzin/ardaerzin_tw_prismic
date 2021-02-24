@@ -2,12 +2,12 @@ import 'Styles/globals.css'
 import { AnimatePresence, MotionConfig } from 'framer-motion'
 import useDocumentBackground from 'lib/hooks/useDocumentBackground'
 
-import PageWrapper from 'Components/Page/PageWrapper'
+import PageWrapper from 'Components/Common/Page/PageWrapper'
 import Footer from 'Components/Navigation/Footer'
 import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { useEffect, useRef, useState, createContext } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import theme, { ThemeContext } from 'lib/theme'
 
 const MobileMenuContainer = dynamic(() => import('Components/Navigation/MobileMenu'), { ssr: false })
@@ -23,7 +23,7 @@ const MyApp = ({ Component, pageProps, router }) => {
     })
   }, [])
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeContext.Provider value={theme.colors}>
       <MotionConfig
         features={features}
       >

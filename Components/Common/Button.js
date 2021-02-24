@@ -5,16 +5,17 @@ import PropTypes from 'prop-types'
 import { ThemeContext } from 'lib/theme'
 
 const Button = forwardRef(({ color = 'accent3', hint = 'DEFAULT', className, ...rest }, ref) => {
-  const theme = useContext(ThemeContext)
+  const colors = useContext(ThemeContext)
   const buttonColor = useMemo(() => {
-    const x = theme.colors[color]
+    const x = colors[color]
     switch (typeof x) {
       case 'object':
-        return theme.colors[color][hint] || theme.colors[color][500]
+        return colors[color][hint] || colors[color][500]
       default:
-        return theme.colors[color]
+        return colors[color]
     }
-  }, [color, hint, theme.colors])
+  }, [color, hint, colors])
+
   return (
     <motion.a
       ref={ref}
