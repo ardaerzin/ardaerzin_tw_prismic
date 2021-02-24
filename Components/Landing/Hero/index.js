@@ -1,4 +1,5 @@
 import { HeroHeader } from 'Components/Common/Headers'
+import { HeroDescription, HeroTextSection } from 'Components/Common/HeroComponents'
 import CommonSection from 'Components/Common/Section'
 import Image from 'next/image'
 
@@ -33,30 +34,17 @@ const LandingHero = props => {
           loading='eager'
         />
       </div>
-      <div
-        className='
-          flex
-          flex-col
-          space-y-6
-          max-w-prose
-        '
-      >
+      <HeroTextSection>
         <HeroHeader>
           <span className='text-accent1'>founder, </span>
           <span className='text-accent4'>mentor, </span>
           <span className='text-accent3'>teacher, </span>
           <span className='text-accent2'>fullstack developer</span>
         </HeroHeader>
-        <p
-          className='
-            font-body
-            text-2xl
-            lg:text-4xl
-          '
-        >
+        <HeroDescription>
           I strive to help motivated founders and project teams using lean & minimal methodologies.
-        </p>
-      </div>
+        </HeroDescription>
+      </HeroTextSection>
     </CommonSection>
   )
 }

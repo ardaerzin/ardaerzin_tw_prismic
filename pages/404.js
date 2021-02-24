@@ -4,8 +4,9 @@ import CommonSection from 'Components/Common/Section'
 import Button from 'Components/Common/Button'
 import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
-import Page from 'Components/Page'
+import Page from 'Components/Common/Page'
 import Link from 'next/link'
+import { HeroDescription, HeroTextSection } from 'Components/Common/HeroComponents'
 
 const Error = forwardRef(({ statusCode, ...rest }, ref) => {
   return (
@@ -22,22 +23,15 @@ const Error = forwardRef(({ statusCode, ...rest }, ref) => {
             alt='next'
           />
         </div>
-        <div className='flex flex-col flex-grow space-y-4 w-full max-w-prose'>
+        <HeroTextSection>
           <HeroHeader>
             {statusCode
               ? `An error ${statusCode} occurred on server`
               : 'no can dosville babydoll...'}
           </HeroHeader>
-          <p
-            className='
-              font-body
-              text-2xl
-              lg:text-4xl
-              max-w-prose
-            '
-          >
+          <HeroDescription>
             If you think this page should exist, let me know or maybe just try again later
-          </p>
+          </HeroDescription>
           <Link
             href='/'
             className='rounded-md shadow self-start'
@@ -49,7 +43,7 @@ const Error = forwardRef(({ statusCode, ...rest }, ref) => {
               </span>
             </Button>
           </Link>
-        </div>
+        </HeroTextSection>
       </CommonSection>
     </Page>
   )

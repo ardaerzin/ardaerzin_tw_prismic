@@ -6,8 +6,7 @@ export const HeroHeader = ({ className, ...rest }) => {
   return (
     <h1
       className={classnames(`
-        text-6xl
-        lg:text-7xl
+        text-6xl lg:text-7xl
         font-black
         font-display
         max-w-header-prose
@@ -24,10 +23,9 @@ HeroHeader.propTypes = {
 
 export const SectionHeader = ({ className, ...rest }) => {
   return (
-    <p
+    <h2
       className={classnames(`
-        lg:text-6xl
-        text-5xl
+        text-5xl lg:text-6xl
         font-black
         font-display
         tracking-tight
@@ -66,8 +64,8 @@ export const CardTitle = ({ className, ...rest }) => {
   return (
     <h2
       className={classnames(`
-        text-2xl
-        font-bold
+        text-xl
+        font-semibold
         font-display
         tracking-tight
         max-w-prose
