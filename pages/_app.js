@@ -7,7 +7,8 @@ import Footer from 'Components/Navigation/Footer'
 import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, createContext } from 'react'
+import theme, { ThemeContext } from 'lib/theme'
 
 const MobileMenuContainer = dynamic(() => import('Components/Navigation/MobileMenu'), { ssr: false })
 const Header = dynamic(() => import('Components/Navigation/Header'))
@@ -22,33 +23,35 @@ const MyApp = ({ Component, pageProps, router }) => {
     })
   }, [])
   return (
-    <MotionConfig
-      features={features}
-    >
-      <Head>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Raleway:wght@300;400;500" rel="stylesheet" />
-      </Head>
-      <MobileMenuContainer />
-      <PageWrapper
-        scrollY={scrollY}
-        ref={pageRef}
+    <ThemeContext.Provider value={theme}>
+      <MotionConfig
+        features={features}
       >
-        <Header />
-        <AnimatePresence
-          exitBeforeEnter
+        <Head>
+          <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Raleway:wght@300;400;500" rel="stylesheet" />
+        </Head>
+        <MobileMenuContainer />
+        <PageWrapper
+          scrollY={scrollY}
+          ref={pageRef}
         >
-          <Component
-            key={router.pathname}
-            {...pageProps}
-          />
-        </AnimatePresence>
-      </PageWrapper>
-      <Footer
-        scrollY={scrollY}
-        pageRef={pageRef}
-      />
-    </MotionConfig>
+          <Header />
+          <AnimatePresence
+            exitBeforeEnter
+          >
+            <Component
+              key={router.pathname}
+              {...pageProps}
+            />
+          </AnimatePresence>
+        </PageWrapper>
+        <Footer
+          scrollY={scrollY}
+          pageRef={pageRef}
+        />
+      </MotionConfig>
+    </ThemeContext.Provider>
   )
 }
 
