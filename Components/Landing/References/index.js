@@ -7,7 +7,7 @@ const LandingReferencesSection = ({ references = [] }) => {
   return (
     <CommonSection className='lg:flex-col space-y-12'>
       <SectionHeader>
-        some projects I've <span className='text-accent2'>mentored</span>
+        some <span className='text-accent2'>mentored</span> projects
       </SectionHeader>
       <div
         className='

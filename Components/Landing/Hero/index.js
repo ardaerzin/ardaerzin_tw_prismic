@@ -17,7 +17,7 @@ const LandingHero = props => {
       <div
         className='
           flex
-          bg-accent3
+          bg-brand
           rounded-full
           flex-shrink-0
           self-start
@@ -36,10 +36,9 @@ const LandingHero = props => {
       </div>
       <HeroTextSection>
         <HeroHeader>
-          <span className='text-accent1'>founder, </span>
+          <span className='text-accent3'>founder, </span>
           <span className='text-accent4'>mentor, </span>
-          <span className='text-accent3'>teacher, </span>
-          <span className='text-accent2'>fullstack developer</span>
+          <span className='text-accent2'>fullstack dev</span>
         </HeroHeader>
         <HeroDescription>
           I strive to help motivated founders and project teams using lean & minimal methodologies.

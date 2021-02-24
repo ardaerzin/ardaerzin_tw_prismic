@@ -11,7 +11,7 @@ const NavLink = ({ label, colors: { active = '#75BEEF', initial = twcolors.trueG
       {...rest}
     >
       <motion.a
-        className='font-display text-2xl font-semibold cursor-pointer text-center'
+        className='font-display text-lg font-semibold cursor-pointer text-center'
         whileHover='hover'
         initial='initial'
         variants={{
@@ -21,7 +21,7 @@ const NavLink = ({ label, colors: { active = '#75BEEF', initial = twcolors.trueG
         animate={router.pathname === rest.href ? 'hover' : 'initial'}
         transition={{ duration: 0.3 }}
       >
-        {'>'} {label}
+        {label}
       </motion.a>
     </Link>
   )
