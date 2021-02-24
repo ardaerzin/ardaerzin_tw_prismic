@@ -3,7 +3,7 @@ import LandingReferencesSection from 'Components/Landing/References'
 import LandingProjectsSection from 'Components/Landing/Projects'
 import LandingServicesSection from 'Components/Landing/Services'
 import LandingHero from 'Components/Landing/Hero'
-import Page from 'Components/Page'
+import Page from 'Components/Common/Page'
 import PropTypes from 'prop-types'
 
 const LandingPage = ({ references, projects }) => {

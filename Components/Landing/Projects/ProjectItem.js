@@ -3,10 +3,11 @@ import { parseDateString } from 'lib/date'
 import { RichText } from 'prismic-reactjs'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
+import CardItem from 'Components/Common/Card'
 
 const ProjectItem = ({ img, title, description, startdate }) => {
   return (
-    <div className='flex flex-col bg-white rounded-lg overflow-hidden shadow-md'>
+    <CardItem>
       <div className='w-full'>
         <Image
           src={`${img.url}`}
@@ -32,7 +33,7 @@ const ProjectItem = ({ img, title, description, startdate }) => {
           <RichText render={description} />
         </div>
       </div>
-    </div>
+    </CardItem>
   )
 }
 

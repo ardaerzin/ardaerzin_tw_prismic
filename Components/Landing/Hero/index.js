@@ -1,20 +1,17 @@
 import { HeroHeader } from 'Components/Common/Headers'
+import { HeroDescription, HeroTextSection } from 'Components/Common/HeroComponents'
+import CommonSection from 'Components/Common/Section'
 import Image from 'next/image'
 
 const LandingHero = props => {
   return (
-    <section
+    <CommonSection
       className='
-        flex flex-col
-        lg:flex-row
-        lg:space-x-8
-        lg:space-y-0
-        space-y-8
-        py-32
-        max-w-screen-lg
-        w-full
+        md:space-x-8
+        md:flex-row
+        space-y-8 md:space-y-0
         justify-around
-        mx-auto
+        md:mt-16 lg:mt-24
       '
     >
       <div
@@ -25,7 +22,7 @@ const LandingHero = props => {
           flex-shrink-0
           self-start
           w-40
-          lg:w-64
+          lg:w-56
         '
       >
         <Image
@@ -37,31 +34,18 @@ const LandingHero = props => {
           loading='eager'
         />
       </div>
-      <div
-        className='
-          flex
-          flex-col
-          space-y-6
-          max-w-prose
-        '
-      >
+      <HeroTextSection>
         <HeroHeader>
           <span className='text-accent1'>founder, </span>
           <span className='text-accent4'>mentor, </span>
           <span className='text-accent3'>teacher, </span>
           <span className='text-accent2'>fullstack developer</span>
         </HeroHeader>
-        <p
-          className='
-            font-body
-            text-2xl
-            lg:text-4xl
-          '
-        >
+        <HeroDescription>
           I strive to help motivated founders and project teams using lean & minimal methodologies.
-        </p>
-      </div>
-    </section>
+        </HeroDescription>
+      </HeroTextSection>
+    </CommonSection>
   )
 }
 
