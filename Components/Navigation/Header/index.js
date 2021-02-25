@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import NavLink from 'Components/Navigation/Common/NavLink'
 import Link from 'next/link'
 import NavLinks from '../Links'
