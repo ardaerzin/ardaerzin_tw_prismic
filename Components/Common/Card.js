@@ -1,7 +1,8 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
+import { forwardRef } from 'react'
 
-const CardItem = ({ className, ...rest }) => {
+const CardItem = forwardRef(({ className, ...rest }, props) => {
   return (
     <div
       className={classnames(`
@@ -14,7 +15,7 @@ const CardItem = ({ className, ...rest }) => {
       {...rest}
     />
   )
-}
+})
 
 CardItem.propTypes = {
   className: PropTypes.string
