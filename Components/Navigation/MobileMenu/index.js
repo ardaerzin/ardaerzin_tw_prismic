@@ -89,10 +89,10 @@ const MobileMenuContainer = (props) => {
       >
         <div
           ref={ref}
-          className='flex flex-wrap justify-start items-start content-start w-full h-full text-white'
+          className='flex flex-wrap justify-start items-start content-start w-full h-full text-white overflow-y-scroll'
         >
           <motion.div
-            className='flex flex-col self-start px-4 py-8 space-y-2'
+            className='flex flex-col self-start px-4 py-8 space-y-2 sticky top-0 bg-brand z-10 w-full'
             variants={{
               open: {
                 y: 0,

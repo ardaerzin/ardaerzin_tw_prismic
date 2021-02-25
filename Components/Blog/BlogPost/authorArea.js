@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const BlogAuthorArea = ({ date }) => {
   return (
-    <div className='flex flex-row justify-start items-center mb-4 space-x-2'>
+    <div className='flex flex-row justify-start items-center space-x-2'>
       <div className='w-8 h-8 rounded-full bg-indigo-500'>
         <Image
           src='/images/arda2.png'
@@ -19,9 +19,13 @@ const BlogAuthorArea = ({ date }) => {
         <span className='font-base text-sm'>
           arda erzin
         </span>
-        <span className='text-gray-400'>
-          {parseDateString(date)}
-        </span>
+        {
+          date && (
+            <span className='text-gray-400'>
+              {parseDateString(date)}
+            </span>
+          )
+        }
       </div>
     </div>
   )

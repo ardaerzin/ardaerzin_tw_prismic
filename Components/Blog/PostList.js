@@ -14,7 +14,7 @@ const BlogPostList = ({ posts = [], ...rest }) => {
         {...heroPost.node}
       />
       <SectionSubHeader>
-      <span className='text-accent4'>older</span> posts
+        <span className='text-accent4'>older</span> posts
       </SectionSubHeader>
       <div
         className='

@@ -35,7 +35,7 @@ const Footer = ({ scrollY, pageRef }) => {
         { NavLinks.map((nl, i) => <FooterNavLink key={`footer-link-${i}`} {...nl} />) }
       </div>
       <span className='font-body text-gray-200'>
-        made with {'<3'} in Berlin
+        hand crafted with <span role='img' aria-label='heart'>🧡</span> in Berlin
       </span>
     </motion.div>
   )

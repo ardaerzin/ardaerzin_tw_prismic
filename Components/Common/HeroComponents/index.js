@@ -1,24 +1,26 @@
-export const HeroTextSection = (props) => {
+import classnames from 'classnames'
+
+export const HeroTextSection = ({ className, ...rest }) => {
   return (
     <div
-      className='
+      className={classnames(`
         flex flex-col flex-grow
         space-y-4
         w-full max-w-prose
-      '
-      {...props}
+      `, className)}
+      {...rest}
     />
   )
 }
 
-export const HeroDescription = (props) => {
+export const HeroDescription = ({ className, ...rest }) => {
   return (
     <p
-      className='
+      className={classnames(`
         font-body
-        text-2xl lg:text-4xl
-      '
-      {...props}
+        text-2xl lg:text-3xl
+      `, className)}
+      {...rest}
     />
   )
 }
