@@ -10,8 +10,8 @@ export const NavLinks = [
     description: 'all about me'
   },
   {
-    href: '/work',
-    label: 'work',
+    href: '/portfolio',
+    label: 'portfolio',
     description: 'working with me'
   },
   {
