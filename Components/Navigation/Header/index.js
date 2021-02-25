@@ -10,7 +10,7 @@ const Header = (props) => {
         flex justify-between items-center
         mx-auto
         pt-8
-        px-6 md:px-4 lg:px-10
+        px-6 md:px-6 lg:px-0
         z-50
       '
     >

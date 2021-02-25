@@ -7,10 +7,10 @@ const LandingHero = props => {
   return (
     <CommonSection
       className='
-        md:space-x-8
+        md:space-x-8 lg:space-x-12
         md:flex-row
         space-y-8 md:space-y-0
-        justify-around
+        justify-center
         md:mt-16 lg:mt-24
       '
     >
@@ -20,9 +20,11 @@ const LandingHero = props => {
           bg-brand
           rounded-full
           flex-shrink-0
-          self-start
+          self-center
+          md:self-start
           w-40
           lg:w-56
+          ring-4 ring-inset ring-accent4
         '
       >
         <Image
@@ -35,12 +37,16 @@ const LandingHero = props => {
         />
       </div>
       <HeroTextSection>
-        <HeroHeader>
+        <HeroHeader
+          className='text-center md:text-left'
+        >
           <span className='text-accent3'>founder, </span>
           <span className='text-accent4'>mentor, </span>
           <span className='text-accent2'>fullstack dev</span>
         </HeroHeader>
-        <HeroDescription>
+        <HeroDescription
+          className='text-center md:text-left'
+        >
           I strive to help motivated founders and project teams using lean & minimal methodologies.
         </HeroDescription>
       </HeroTextSection>
