@@ -1,17 +1,16 @@
-import { getBlogPostBySlug, getBlogPosts } from 'lib/prismic/endpoints'
+import { findSimilarBlogPosts, getBlogPostBySlug, getBlogPosts } from 'lib/prismic/endpoints'
+import { HeroHeader, SectionSubHeader } from 'Components/Common/Headers'
+import BlogAuthorArea from 'Components/Blog/BlogPost/authorArea'
+import BlogPostThumbnail from 'Components/Blog/BlogPost/item'
+import { RichText } from 'prismic-reactjs'
 import Page from 'Components/Common/Page'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
-import { HeroHeader, SectionHeader } from 'Components/Common/Headers'
-import BlogAuthorArea from 'Components/Blog/BlogPost/authorArea'
-import { RichText } from 'prismic-reactjs'
-import { parseDateString } from 'lib/date'
-import BlogPostThumbnail from 'Components/Blog/BlogPost/item'
 
-const BlogPostPage = ({ post, ...rest }) => {
+const BlogPostPage = ({ post, similarposts, ...rest }) => {
   const { cover, title, date, excerpt, content, category } = post || {}
   return (
-    <Page className='pt-8 md:pt-12 pb-20 align-start items-start divide-y-4'>
+    <Page className='pt-8 md:pt-12 pb-20 align-start items-start divide-y-2'>
       {
         post && (
           <>
@@ -52,22 +51,14 @@ const BlogPostPage = ({ post, ...rest }) => {
             <div
               className='
                 max-w-prose
-                mt-12
-                pt-4
+                mt-6
+                pt-6
+                space-y-6
               '
             >
-              share area
-            </div>
-            <div
-              className='
-                max-w-prose
-                mt-12
-                pt-12
-              '
-            >
-              <SectionHeader>
-                similar posts
-              </SectionHeader>
+              <SectionSubHeader>
+                <span className='text-accent4'>similar</span> posts
+              </SectionSubHeader>
               <div
                 className='
                   grid
@@ -78,8 +69,7 @@ const BlogPostPage = ({ post, ...rest }) => {
                 '
                 {...rest}
               >
-                <BlogPostThumbnail {...post} />
-                <BlogPostThumbnail {...post} />
+                {similarposts.map((sp, i) => <BlogPostThumbnail key={`similar-post-item-${i}`} {...sp} />)}
               </div>
             </div>
           </>
@@ -90,15 +80,20 @@ const BlogPostPage = ({ post, ...rest }) => {
 }
 
 BlogPostPage.propTypes = {
-  post: PropTypes.object
+  post: PropTypes.object,
+  similarposts: PropTypes.array
 }
 
 export default BlogPostPage
 
 export const getStaticProps = async ({ params }) => {
-  const [{ node }] = await getBlogPostBySlug(params.slug)
+  const [{ node: post }] = await getBlogPostBySlug(params.slug)
+  const similarposts = (await findSimilarBlogPosts(`{ documentId:"${post._meta.id}", max:2 }`)).map((si, i) => si.node)
   return {
-    props: { post: node }
+    props: {
+      post,
+      similarposts
+    }
   }
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { CardTitle } from 'Components/Common/Headers'
 import CardItem from 'Components/Common/Card'
 import BlogAuthorArea from './authorArea'
@@ -8,7 +9,7 @@ import Link from 'next/link'
 const BlogHeroPost = ({ cover, title, excerpt, date, _meta: { uid } }) => {
   return (
     <Link href={`/blog/${uid}`}>
-      <a href={`/blog/${uid}`}>
+      <a>
         <CardItem
           className='
             md:flex-row

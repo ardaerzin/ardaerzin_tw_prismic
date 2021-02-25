@@ -8,9 +8,9 @@ import Link from 'next/link'
 const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid }, ...rest }) => {
   return (
     <Link href={`/blog/${uid}`}>
-      <a href={`/blog/${uid}`}>
-        <CardItem className='cursor-pointer'>
-          <div className='aspect-w-16 aspect-h-9'>
+      <a>
+        <CardItem className='cursor-pointer self-stretch h-full'>
+          <div className='aspect-w-16 aspect-h-9 relative'>
             <div>
               <Image
                 src={`${cover.url}`}
@@ -18,12 +18,21 @@ const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid
                 loading='lazy'
                 layout='fill'
               />
+              <div
+                className='
+                  text-xxs text-white
+                  font-semibold font-display
+                  bg-brand
+                  rounded-full tracking-normal
+                  uppercase absolute
+                  top-4 right-4 shadow-lg py-1 px-2
+                '
+              >
+                <b>#</b>{category}
+              </div>
             </div>
           </div>
           <div className='flex flex-col space-y-2 p-4 flex-grow'>
-            <span className='text-xs uppercase font-medium tracking-tighter text-accent3'>
-              #{category}
-            </span>
             <CardTitle>
               {title[0].text}
             </CardTitle>
@@ -33,6 +42,7 @@ const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid
                 text-md text-left text-gray-500
                 leading-snug
                 line-clamp-4
+                flex-grow
               '
             >
               {excerpt}
