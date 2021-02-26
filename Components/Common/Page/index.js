@@ -7,7 +7,8 @@ const Page = ({ className, ...rest }) => {
       className={classnames(className, `
         relative
         flex flex-col
-        container
+        sm:container
+        w-full
         mx-auto
         min-h-screen
         px-6 md:px-4 lg:px-10
@@ -15,7 +16,8 @@ const Page = ({ className, ...rest }) => {
         justify-start
         items-center
         z-0
-        md:-mt-8
+        md:-mt-16
+        pt-16
       `)}
       {...rest}
     />

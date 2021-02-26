@@ -11,7 +11,8 @@ const Header = (props) => {
         max-w-screen-lg
         flex justify-between items-center
         mx-auto
-        pt-8
+        h-16
+        pt-4
         px-6 md:px-6 lg:px-0
         z-50
       '
@@ -34,9 +35,9 @@ const Header = (props) => {
             </span>
           </a>
         </Link>
-      <div className='hidden md:flex space-x-8 justify-center'>
+      <nav className='hidden md:flex space-x-8 justify-center'>
         { NavLinks.map((nl, i) => <NavLink key={`header-link-${i}`} {...nl} />) }
-      </div>
+      </nav>
     </header>
   )
 }
