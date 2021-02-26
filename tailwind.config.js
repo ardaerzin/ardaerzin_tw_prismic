@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './Components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
@@ -33,6 +35,10 @@ module.exports = {
     fontFamily: {
       display: ['Poppins', 'system-ui', 'sans-serif'],
       body: ['Raleway', 'system-ui', 'serif']
+    },
+    screens: {
+      xs: '425px',
+      ...defaultTheme.screens
     }
   },
   variants: {
@@ -40,6 +46,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/line-clamp')
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/forms')
   ]
 }
