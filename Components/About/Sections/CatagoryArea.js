@@ -84,13 +84,13 @@ const AboutCatagoryArea = ({ activeSection }) => {
       className='
         flex md:flex-col
         row-start-2 col-start-1
-        col-span-2 md:col-span-1
+        col-span-1
         bg-bg
         sticky -top-1 md:top-0
         self-start
         py-2 md:py-0
         overflow-x-scroll md:overflow-hidden
-        w-max
+        max-w-max md:w-max
       '
     >
       <motion.div
@@ -99,7 +99,7 @@ const AboutCatagoryArea = ({ activeSection }) => {
           md:space-y-2 md:space-x-0 space-x-2
           border-b-4 md:border-b-0
           w-max
-          py-4
+          py-4 pr-12 md:pr-0
           self-start
         '
         animate={inView ? 'visible' : 'sticky'}

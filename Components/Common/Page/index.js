@@ -8,7 +8,6 @@ const Page = ({ className, type = 'flex', ...rest }) => {
         relative
         w-full
         mx-auto
-        sm:container
         min-h-screen
         px-6 md:px-4 lg:px-10
         pb-6

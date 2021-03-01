@@ -36,7 +36,7 @@ const About = props => {
       type='grid'
     >
       <CommonSection
-        className='row-start-1 col-span-2 lg:space-x-16 space-y-8 lg:space-y-0 w-full'
+        className='row-start-1 col-span-1 md:col-span-2 lg:space-x-16 space-y-8 lg:space-y-0 w-full'
       >
         <HeroTextSection className='justify-center'>
           <HeroHeader>
@@ -51,7 +51,7 @@ const About = props => {
         className='
           row-start-3 md:row-start-2
           col-start-1 md:col-start-2
-          col-span-2 md:col-span-1
+          col-span-1
           flex flex-col
           space-y-16
           pb-40
