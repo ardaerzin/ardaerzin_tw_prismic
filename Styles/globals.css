@@ -1,13 +1,22 @@
+:root {
+  --color-bg: #F8F8F8;
+  --color-brand: #482584;
+  --color-accent1: #261A3A;
+  --color-accent2: #C18CC6;
+  --color-accent3: #6843C5;
+  --color-accent4: #75BEEF;
+  /* ... */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
-  background-image: repeating-linear-gradient(#f8f8f8, #482584);
+  background-image: repeating-linear-gradient(var(--color-bg), var(--color-brand));
   height: 100%;
   width: 100%;
   background-attachment: fixed;
-  background-color: #482584;
 }
 
 body {
@@ -19,5 +28,13 @@ body {
 }
 
 #page-wrapper {
-  background-color: #F8F8F8;
+  background-color: var(--color-bg);
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
 }

@@ -10,9 +10,14 @@ const tailwindConfig = require('../tailwind.config.js')
 const { theme } = resolveConfig(tailwindConfig)
 const themeStr = JSON.stringify(theme)
 const js = `
+import { createContext } from 'react'
+
 const theme  = ${themeStr}
 
 export default theme
+
+export const ThemeContext = createContext(theme)
+
 `
 
 try {
