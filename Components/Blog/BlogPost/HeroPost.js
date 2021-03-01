@@ -1,14 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { CardTitle } from 'Components/Common/Headers'
 import CardItem from 'Components/Common/Card'
 import BlogAuthorArea from './authorArea'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Link from 'next/link'
+import BlogPostCategoryPill from './CategoryPill'
 
-const BlogHeroPost = ({ cover, title, excerpt, date, _meta: { uid } }) => {
+const BlogHeroPost = ({ category, cover, title, excerpt, date, _meta: { uid } }) => {
   return (
     <Link href={`/blog/${uid}`}>
-      <a href={`/blog/${uid}`}>
+      <a>
         <CardItem
           className='
             md:flex-row
@@ -42,14 +44,15 @@ const BlogHeroPost = ({ cover, title, excerpt, date, _meta: { uid } }) => {
             </div>
           </div>
 
-          <div className='flex flex-col space-y-2 max-w-prose'>
-            <CardTitle>
+          <div className='flex flex-col space-y-2 max-w-prose relative'>
+            <BlogPostCategoryPill category={category} />
+            <CardTitle className='text-2xl'>
               {title[0].text}
             </CardTitle>
             <p
               className='
                 font-body
-                text-md text-left text-gray-500
+                text-lg text-left text-gray-500
                 leading-snug
                 line-clamp-4
                 max-w-prose
@@ -72,7 +75,8 @@ BlogHeroPost.propTypes = {
   title: PropTypes.array,
   excerpt: PropTypes.string,
   date: PropTypes.string,
-  _meta: PropTypes.object
+  _meta: PropTypes.object,
+  category: PropTypes.string
 }
 
 export default BlogHeroPost

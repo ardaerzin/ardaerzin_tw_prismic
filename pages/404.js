@@ -36,7 +36,7 @@ const Error = forwardRef(({ statusCode, ...rest }, ref) => {
             href='/'
             className='rounded-md shadow self-start'
           >
-            <Button className='space-x-1'>
+            <Button className='space-x-1 self-start rounded-full'>
               <IoChevronBackOutline />
               <span>
                 home

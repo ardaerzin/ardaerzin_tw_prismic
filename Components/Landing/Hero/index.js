@@ -11,7 +11,7 @@ const LandingHero = props => {
         md:flex-row
         space-y-8 md:space-y-0
         justify-center
-        md:mt-16 lg:mt-24
+        md:mt-8
       '
     >
       <div

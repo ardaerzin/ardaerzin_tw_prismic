@@ -5,7 +5,7 @@ import Image from 'next/image'
 const BlogAuthorArea = ({ date }) => {
   return (
     <div className='flex flex-row justify-start items-center space-x-2'>
-      <div className='w-8 h-8 rounded-full bg-indigo-500'>
+      <div className='w-8 h-8 rounded-full bg-brand'>
         <Image
           src='/images/arda2.png'
           quality={75}

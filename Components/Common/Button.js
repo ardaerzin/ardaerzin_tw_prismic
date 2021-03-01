@@ -17,11 +17,11 @@ const Button = forwardRef(({ color = 'accent3', hint = 'DEFAULT', className, ...
   }, [color, hint, colors])
 
   return (
-    <motion.a
+    <motion.button
       ref={ref}
       href='/'
       className={classnames(`
-        shadow self-start
+        shadow
         flex
         py-3 md:py-2
         px-8 md:px-8
@@ -41,6 +41,11 @@ const Button = forwardRef(({ color = 'accent3', hint = 'DEFAULT', className, ...
         hover: {
           boxShadow: `0 0 0 2px ${buttonColor}`
         }
+      }}
+      transition={{
+        type: 'spring',
+        damping: 40,
+        stiffness: 400
       }}
       {...rest}
     />

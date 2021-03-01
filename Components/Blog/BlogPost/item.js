@@ -1,16 +1,18 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import CardItem from 'Components/Common/Card'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import { CardTitle } from 'Components/Common/Headers'
 import BlogAuthorArea from './authorArea'
 import Link from 'next/link'
+import BlogPostCategoryPill from './CategoryPill'
 
 const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid }, ...rest }) => {
   return (
     <Link href={`/blog/${uid}`}>
-      <a href={`/blog/${uid}`}>
-        <CardItem className='cursor-pointer'>
-          <div className='aspect-w-16 aspect-h-9'>
+      <a>
+        <CardItem className='cursor-pointer self-stretch h-full'>
+          <div className='aspect-w-16 aspect-h-9 relative'>
             <div>
               <Image
                 src={`${cover.url}`}
@@ -18,12 +20,10 @@ const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid
                 loading='lazy'
                 layout='fill'
               />
+              <BlogPostCategoryPill category={category} overlay />
             </div>
           </div>
           <div className='flex flex-col space-y-2 p-4 flex-grow'>
-            <span className='text-xs uppercase font-medium tracking-tighter text-accent3'>
-              #{category}
-            </span>
             <CardTitle>
               {title[0].text}
             </CardTitle>
@@ -33,6 +33,7 @@ const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid
                 text-md text-left text-gray-500
                 leading-snug
                 line-clamp-4
+                flex-grow
               '
             >
               {excerpt}

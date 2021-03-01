@@ -62,7 +62,7 @@ SectionSubHeader.propTypes = {
 
 export const CardTitle = ({ className, ...rest }) => {
   return (
-    <h2
+    <h4
       className={classnames(`
         text-xl
         font-semibold
