@@ -29,7 +29,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       >
         <Head>
           <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
-          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Raleway:wght@300;400;500" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500" rel="stylesheet" />
         </Head>
         <MobileMenuContainer />
         <PageWrapper

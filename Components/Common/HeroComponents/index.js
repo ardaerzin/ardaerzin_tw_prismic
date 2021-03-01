@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 export const HeroTextSection = ({ className, ...rest }) => {
   return (
@@ -13,6 +14,10 @@ export const HeroTextSection = ({ className, ...rest }) => {
   )
 }
 
+HeroTextSection.propTypes = {
+  className: PropTypes.string
+}
+
 export const HeroDescription = ({ className, ...rest }) => {
   return (
     <p
@@ -23,4 +28,8 @@ export const HeroDescription = ({ className, ...rest }) => {
       {...rest}
     />
   )
+}
+
+HeroDescription.propTypes = {
+  className: PropTypes.string
 }

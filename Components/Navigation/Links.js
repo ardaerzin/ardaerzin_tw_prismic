@@ -9,11 +9,11 @@ export const NavLinks = [
     label: 'about',
     description: 'all about me'
   },
-  {
-    href: '/portfolio',
-    label: 'portfolio',
-    description: 'working with me'
-  },
+  // {
+  //   href: '/portfolio',
+  //   label: 'portfolio',
+  //   description: 'working with me'
+  // },
   {
     href: '/contact',
     label: 'contact',
