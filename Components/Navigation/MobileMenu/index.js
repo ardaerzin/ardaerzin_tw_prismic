@@ -103,6 +103,11 @@ const MobileMenuContainer = (props) => {
                 opacity: 0
               }
             }}
+            transition={{
+              type: 'spring',
+              damping: 40,
+              stiffness: 400
+            }}
           >
             <h4
               className='font-display font-bold text-xl border-b-2 border-white'
