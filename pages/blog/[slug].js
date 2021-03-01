@@ -6,6 +6,7 @@ import { RichText } from 'prismic-reactjs'
 import Page from 'Components/Common/Page'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
+import BlogPostCategoryPill from 'Components/Blog/BlogPost/CategoryPill'
 
 const BlogPostPage = ({ post, similarposts, ...rest }) => {
   const { cover, title, date, excerpt, content, category } = post || {}
@@ -34,9 +35,7 @@ const BlogPostPage = ({ post, similarposts, ...rest }) => {
                   className='self-start'
                   date={date}
                 />
-                <span className='bg-accent3 rounded-full py-1 px-2 font-display text-xs text-white'>
-                  {category}
-                </span>
+                <BlogPostCategoryPill category={category} large />
               </div>
               <HeroHeader className='self-start'>
                 {title[0].text}

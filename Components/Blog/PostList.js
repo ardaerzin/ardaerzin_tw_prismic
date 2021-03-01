@@ -11,23 +11,31 @@ const BlogPostList = ({ posts = [], ...rest }) => {
         <span className='text-accent4'>most</span> recent
       </SectionHeader>
       <BlogHeroPost
-        {...heroPost.node}
+        {...heroPost}
       />
       <SectionSubHeader>
         <span className='text-accent4'>older</span> posts
       </SectionSubHeader>
-      <div
-        className='
-          grid
-          w-full
-          grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-          gap-y-4
-          sm:gap-x-4
-        '
-        {...rest}
-      >
-        {others.map((pi, i) => <BlogPostThumbnail key={`mentored-item-${i}`} {...pi.node} />)}
-      </div>
+      {
+        others.length > 0 ? (
+          <div
+            className='
+              grid
+              w-full
+              grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+              gap-y-4
+              sm:gap-x-4
+            '
+            {...rest}
+          >
+            {others.map((pi, i) => <BlogPostThumbnail key={`mentored-item-${i}`} {...pi} />)}
+          </div>
+        ) : (
+          <span className='text-lg font-body text-gray-400'>
+            could not find other posts in this category
+          </span>
+        )
+      }
     </div>
   )
 }

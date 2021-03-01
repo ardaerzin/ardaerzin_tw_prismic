@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import CardItem from 'Components/Common/Card'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import { CardTitle } from 'Components/Common/Headers'
 import BlogAuthorArea from './authorArea'
 import Link from 'next/link'
+import BlogPostCategoryPill from './CategoryPill'
 
 const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid }, ...rest }) => {
   return (
@@ -18,18 +20,7 @@ const BlogPostThumbnail = ({ cover, title, date, category, excerpt, _meta: { uid
                 loading='lazy'
                 layout='fill'
               />
-              <div
-                className='
-                  text-xxs text-white
-                  font-semibold font-display
-                  bg-brand
-                  rounded-full tracking-normal
-                  uppercase absolute
-                  top-4 right-4 shadow-lg py-1 px-2
-                '
-              >
-                <b>#</b>{category}
-              </div>
+              <BlogPostCategoryPill category={category} overlay />
             </div>
           </div>
           <div className='flex flex-col space-y-2 p-4 flex-grow'>
