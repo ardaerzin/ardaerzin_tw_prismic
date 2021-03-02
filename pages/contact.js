@@ -44,7 +44,7 @@ const Contact = ({ posts, ...rest }) => {
 
       <CommonSection
         className='
-          grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4
+          grid-cols-1 xs:grid-cols-2 lg:grid-cols-4
           gap-x-8 gap-y-8
         '
       >

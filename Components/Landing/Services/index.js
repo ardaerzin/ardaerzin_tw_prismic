@@ -4,7 +4,7 @@ import LandingServiceItem from './item'
 
 const LandingServicesSection = () => {
   return (
-    <CommonSection className='lg:flex-col space-y-12'>
+    <CommonSection className='flex-wrap space-y-12'>
       <SectionHeader>
         <span className='text-accent3'>stuff</span> that I do
       </SectionHeader>

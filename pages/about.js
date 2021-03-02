@@ -32,11 +32,17 @@ const About = props => {
   }
   return (
     <Page
-      className='gap-x-12 max-w-screen-lg w-full mx-auto content-start grid-cols:about-col md:grid-cols-about-row'
+      className='
+        gap-x-12
+        grid-cols:about-col md:grid-cols-about-row
+      '
       type='grid'
     >
       <CommonSection
-        className='row-start-1 col-span-1 md:col-span-2 lg:space-x-16 space-y-8 lg:space-y-0 w-full'
+        className='
+          col-span-1 md:col-span-2
+          lg:space-x-16 space-y-8 lg:space-y-0
+        '
       >
         <HeroTextSection className='justify-center'>
           <HeroHeader>
@@ -49,12 +55,9 @@ const About = props => {
       />
       <div
         className='
-          row-start-3 md:row-start-2
-          col-start-1 md:col-start-2
           col-span-1
           flex flex-col
           space-y-16
-          pb-40
           w-full
         '
       >

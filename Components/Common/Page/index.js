@@ -9,15 +9,16 @@ const Page = ({ className, type = 'flex', ...rest }) => {
         w-full
         mx-auto
         min-h-screen
-        px-6 md:px-4 lg:px-10
-        pb-6
+        px-6 md:px-4
+        pb-8 md:pb-24
         justify-start
         items-center
         z-0
         md:-mt-16
         pt-16
+        max-w-full md:max-w-screen-lg
       `, {
-        'flex flex-col sm:container': type === 'flex',
+        'flex flex-col': type === 'flex',
         grid: type === 'grid'
       }, className)}
       {...rest}
