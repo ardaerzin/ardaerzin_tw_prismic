@@ -15,7 +15,6 @@ const Button = forwardRef(({ disabled = false, color = 'accent3', hint = 'DEFAUL
         return colors[color]
     }
   }, [color, hint, colors])
-
   return (
     <motion.button
       ref={ref}
@@ -60,6 +59,7 @@ const Button = forwardRef(({ disabled = false, color = 'accent3', hint = 'DEFAUL
 })
 
 Button.propTypes = {
+  disabled: PropTypes.bool,
   className: PropTypes.string,
   color: PropTypes.string,
   hint: PropTypes.number

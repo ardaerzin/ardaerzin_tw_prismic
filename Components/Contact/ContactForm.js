@@ -34,7 +34,7 @@ const ContactForm = props => {
     <FormBase
       initialValues={{ fName: '', lName: '', email: '', message: '' }}
       validations={validations}
-      onSubmit={() => alert('User submitted!')}
+      onSubmit={() => console.log('User submitted!')}
     >
       <MyInput
         id='fName'
@@ -64,7 +64,7 @@ const ContactForm = props => {
         label='your message'
         placeholder='why do you want to contact me?'
       />
-      <Button type='submit' disabled>
+      <Button type='submit' control>
         <span className='text-sm font-display'>
           send message
         </span>
