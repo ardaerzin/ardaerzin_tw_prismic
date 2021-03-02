@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const LandingReferencesSection = ({ references = [] }) => {
   return (
-    <CommonSection className='lg:flex-col space-y-12'>
+    <CommonSection className='flex-wrap space-y-12'>
       <SectionHeader>
         some <span className='text-accent2'>mentored</span> projects
       </SectionHeader>

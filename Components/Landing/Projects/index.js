@@ -5,7 +5,7 @@ import ProjectItem from './ProjectItem'
 
 const LandingProjectsSection = ({ projects }) => {
   return (
-    <CommonSection className='lg:flex-col space-y-12'>
+    <CommonSection className='flex-wrap space-y-12'>
       <SectionHeader>
         <span className='text-accent2'>current</span> projects
       </SectionHeader>

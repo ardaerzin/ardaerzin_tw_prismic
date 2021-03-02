@@ -33,23 +33,25 @@ const Categories = [
   }
 ]
 
-const SelectorRow = ({ icon: Icon, name, color, activeSection, ...rest }) => (
-  <CategorySelectorItem
-    className='flex space-x-2 items-center'
-    query='section'
-    activeColor='brand'
-    selected={activeSection === name}
-    name={name}
-    {...rest}
-  >
-    <SelectorIcon color={color} selected={activeSection === name}>
-      <Icon className='text-white' />
-    </SelectorIcon>
-    <span className='font-semibold'>
-      {name}
-    </span>
-  </CategorySelectorItem>
-)
+const SelectorRow = ({ icon: Icon, name, color, activeSection, ...rest }) => {
+  return (
+    <CategorySelectorItem
+      className='flex space-x-2 items-center'
+      query='section'
+      activeColor='brand'
+      selected={activeSection === name}
+      name={name}
+      {...rest}
+    >
+      <SelectorIcon color={color}>
+        <Icon className='text-white' />
+      </SelectorIcon>
+      <span className='font-semibold'>
+        {name}
+      </span>
+    </CategorySelectorItem>
+  )
+}
 
 SelectorRow.propTypes = {
   icon: PropTypes.func,
@@ -58,7 +60,7 @@ SelectorRow.propTypes = {
   activeSection: PropTypes.string
 }
 
-const SelectorIcon = ({ color, selected, ...rest }) => (
+const SelectorIcon = ({ color, ...rest }) => (
   <motion.div
     className={classnames('w-6 h-6 rounded-md flex items-center justify-center text-xs', color)}
     variants={{
@@ -70,8 +72,7 @@ const SelectorIcon = ({ color, selected, ...rest }) => (
 )
 
 SelectorIcon.propTypes = {
-  color: PropTypes.string,
-  selected: PropTypes.bool
+  color: PropTypes.string
 }
 
 const AboutCatagoryArea = ({ activeSection }) => {
@@ -110,7 +111,7 @@ const AboutCatagoryArea = ({ activeSection }) => {
         }}
       >
         {Categories.map((si, i) => (
-          <SelectorRow key={`selector-row-${i}`} {...si} {...activeSection} />
+          <SelectorRow key={`selector-row-${i}`} {...si} {...{ activeSection }} />
         ))}
       </motion.div>
     </div>

@@ -11,7 +11,12 @@ import BlogPostCategoryPill from 'Components/Blog/BlogPost/CategoryPill'
 const BlogPostPage = ({ post, similarposts, ...rest }) => {
   const { cover, title, date, excerpt, content, category } = post || {}
   return (
-    <Page className='pt-8 md:pt-12 pb-20 align-start items-start divide-y-2'>
+    <Page
+      className='
+        pt-8 md:pt-16
+        divide-y-2
+      '
+    >
       {
         post && (
           <>
