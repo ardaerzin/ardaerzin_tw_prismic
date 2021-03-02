@@ -4,7 +4,7 @@ import { useContext, forwardRef, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'lib/theme'
 
-const Button = forwardRef(({ color = 'accent3', hint = 'DEFAULT', className, ...rest }, ref) => {
+const Button = forwardRef(({ disabled = false, color = 'accent3', hint = 'DEFAULT', className, ...rest }, ref) => {
   const colors = useContext(ThemeContext)
   const buttonColor = useMemo(() => {
     const x = colors[color]
@@ -33,15 +33,22 @@ const Button = forwardRef(({ color = 'accent3', hint = 'DEFAULT', className, ...
       `, className)}
       whileHover='hover'
       initial='initial'
+      animate={disabled ? 'disabled' : 'initial'}
       variants={{
+        disabled: {
+          opacity: 0.5
+        },
         initial: {
+          opacity: 1,
           backgroundColor: buttonColor,
           boxShadow: `0 0 0 0px ${buttonColor}`
         },
         hover: {
+          opacity: 1,
           boxShadow: `0 0 0 2px ${buttonColor}`
         }
       }}
+      disabled={disabled}
       transition={{
         type: 'spring',
         damping: 40,
