@@ -2,34 +2,39 @@ import MyInput from 'Components/Common/Form/input'
 import Button from 'Components/Common/Button'
 import FormBase from 'Components/Common/Form'
 
+const validations = {
+  email: {
+    pattern: {
+      value: '/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i',
+      message: 'please type in a valid email address'
+    }
+  },
+  message: {
+    pattern: {
+      value: "/^[a-zA-Z0-9\'!@#$%^&*.;\" ]{3,}$/g",
+      message: 'your message is not long enough'
+    }
+  },
+  fName: {
+    pattern: {
+      value: "/^[a-zA-Z0-9\']{3,}$/g",
+      message: 'invalid name'
+    }
+  },
+  lName: {
+    pattern: {
+      value: "/^[a-zA-Z0-9\']{3,}$/g",
+      message: 'invalid name'
+    }
+  }
+}
+
 const ContactForm = props => {
   return (
     <FormBase
       initialValues={{ fName: '', lName: '', email: '', message: '' }}
-      onSubmit={(values, { setSubmitting }) => {
-        // add submit action here
-      }}
-      validate={values => {
-        const errors = {}
-        if (!values.email) {
-          errors.email = 'Required'
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address'
-        }
-
-        if (!values.fName) {
-          errors.fName = 'Required'
-        }
-        if (!values.lName) {
-          errors.lName = 'Required'
-        }
-        if (!values.message) {
-          errors.message = 'Required'
-        }
-        return errors
-      }}
+      validations={validations}
+      onSubmit={() => alert('User submitted!')}
     >
       <MyInput
         id='fName'
@@ -59,7 +64,7 @@ const ContactForm = props => {
         label='your message'
         placeholder='why do you want to contact me?'
       />
-      <Button type='submit'>
+      <Button type='submit' disabled>
         <span className='text-sm font-display'>
           send message
         </span>
