@@ -4,7 +4,7 @@ import FormLabel from './FormLabel'
 import { useForm } from './useForm'
 
 const FormBase = ({ className, children, validations, initialValues, onSubmit, ...rest }) => {
-  const { handleSubmit, handleChange, handleFocus, handleBlur, data, errors } = useForm({ validations, initialValues, onSubmit })
+  const { handleSubmit, handleChange, handleFocus, handleBlur, data, errors, isValid } = useForm({ validations, initialValues, onSubmit })
   return (
     <form
       onSubmit={handleSubmit}
@@ -31,7 +31,9 @@ const FormBase = ({ className, children, validations, initialValues, onSubmit, .
                     onFocus: handleFocus(child.props.name),
                     onBlur: handleBlur(child.props.name),
                     value: data[child.props.name],
-                    hasError: data.errors?.[child.props.name]
+                    hasError: data.errors?.[child.props.name],
+                    isValid: isValid,
+                    ...(child.props.control ? { disabled: !isValid } : {})
                   })
                 }
                 {errors?.[child.props.name] && (
@@ -50,7 +52,10 @@ const FormBase = ({ className, children, validations, initialValues, onSubmit, .
 
 FormBase.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  validations: PropTypes.object,
+  initialValues: PropTypes.object,
+  onSubmit: PropTypes.func
 }
 
 export default FormBase

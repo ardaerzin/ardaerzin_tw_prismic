@@ -5,14 +5,19 @@ export const useForm = (options) => {
   const [data, setData] = useState({
     values: options?.initialValues || {},
     errors: {},
-    touched: {},
-    isValid: false
+    touched: Object.keys(options?.initialValues).reduce((abr, curr, index, array) => {
+      abr[curr] = false
+      return abr
+    }, {}),
+    isValid: Object.keys(options?.initialValues).reduce((abr, curr, index, array) => {
+      abr[curr] = false
+      return abr
+    }, {})
   })
 
   const validateKey = (key, value) => {
     const validation = options?.validations?.[key]
     if (!validation) return
-    // console.log('validate this key please', key)
     let valid = true
     let newError
     if (validation?.required?.value && !value) {
@@ -32,7 +37,7 @@ export const useForm = (options) => {
       newError = custom.message
     }
 
-    if (valid) return
+    if (valid) return { valid }
     return { error: newError, valid }
   }
 
@@ -40,10 +45,17 @@ export const useForm = (options) => {
     e
   ) => {
     const value = sanitizeFn ? sanitizeFn(e.target.value) : e.target.value
-    let err
+    let err = {
+      valid: true
+    }
     if (data.touched[key]) {
       err = validateKey(key, value)
+    } else {
+      err = {
+        valid: false
+      }
     }
+
     setData({
       values: {
         ...data.values,
@@ -53,7 +65,10 @@ export const useForm = (options) => {
         ...data.errors,
         [key]: err?.error
       },
-      isValid: data.isValid || err?.valid,
+      isValid: {
+        ...data.isValid,
+        [key]: err?.valid
+      },
       touched: data.touched
     })
   }
@@ -68,14 +83,20 @@ export const useForm = (options) => {
     e
   ) => {
     const value = sanitizeFn ? sanitizeFn(e.target.value) : e.target.value
-    const err = validateKey(key, value)
+    let err = {
+      valid: true
+    }
+    err = validateKey(key, value)
     setData({
       values: data.values,
       errors: {
         ...data.errors,
         [key]: err?.error
       },
-      isValid: data.isValid || err?.valid,
+      isValid: {
+        ...data.isValid,
+        [key]: err?.valid
+      },
       touched: {
         ...data.touched,
         [key]: true
@@ -95,6 +116,10 @@ export const useForm = (options) => {
     data: data.values,
     touched: data.touched,
     errors: data.errors,
+    isValid: Object.values(data.isValid).reduce((abr, curr) => {
+      if (curr === false) return false
+      return true
+    }, false),
     handleChange,
     handleSubmit,
     handleFocus,
